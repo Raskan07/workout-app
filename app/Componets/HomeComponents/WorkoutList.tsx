@@ -2,6 +2,7 @@ import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import WorkoutCard from './WorkoutCard'
 import Animation from './Animation'
+import { useRouter } from 'expo-router'
 
 
 const WorkoutList = () => {
@@ -69,6 +70,7 @@ const WorkoutList = () => {
             img:require("../../../assets/wp/waist.webp")
         }
     ]
+    const router = useRouter()
   return (
     <View>
         <View style={{paddingLeft:15,padding:5,flexDirection:"row", justifyContent:"space-between",alignItems:"center"}}>
@@ -76,7 +78,7 @@ const WorkoutList = () => {
         </View>
       {
         data.map((item,index:any) => (
-            <WorkoutCard data={item} key={index} />
+            <WorkoutCard data={item} key={index} route={router} />
         ))
       }
     </View>
