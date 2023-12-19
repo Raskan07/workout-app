@@ -51,7 +51,7 @@ const Exercise = () => {
 
                     <LinearGradient colors={['transparent', '#000000']} style={{ position: "absolute", zIndex: 10, bottom: 0, width: "100%", borderRadius: 30 }}>
                         <Text style={{ paddingLeft: 10, color: "#FFF", fontSize: 18, fontWeight: "700", textTransform: "capitalize" }}>{data?.workout_name} workout</Text>
-                        <Text style={{ paddingLeft: 10, color: "#D0FD3E", fontSize: 15, fontWeight: "500", textTransform: "capitalize", letterSpacing: 2 }}>| {data?.workout_count} workouts</Text>
+                        <Text style={{ paddingLeft: 10, color: "#D0FD3E", fontSize: 15, fontWeight: "500", textTransform: "capitalize", letterSpacing: 2 }}>| 20 workouts</Text>
                     </LinearGradient>
 
                 </ImageBackground>

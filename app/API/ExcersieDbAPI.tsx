@@ -7,7 +7,7 @@ const apiCall = async (bodyPart:any) => {
   const options = {
     method: 'GET',
     url: `${BASE_URL}/exercises/bodyPart/${bodyPart}`,
-    params: { limit: '20' },
+    params: { limit: '25' },
     headers: {
       'X-RapidAPI-Key': API_KEY,
       'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'

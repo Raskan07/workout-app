@@ -4,7 +4,7 @@ import React from 'react'
 import Animated ,{ FadeIn, FadeInLeft, FadeOut } from 'react-native-reanimated';
 
 
-const ExerciseCard = ({data}:any) => {
+const ExerciseCard = ({data,router,index}:any) => {
     if(!data){
         return (
         <View style={{ flex:1, alignItems: "center", justifyContent: "center" }}>
@@ -12,9 +12,12 @@ const ExerciseCard = ({data}:any) => {
         </View>
         )
     }
+
   return (
     <Animated.View entering={FadeInLeft.delay(100).springify()}  exiting={FadeOut}>
-    <TouchableOpacity style={{width:"98%",marginTop:5,padding:5,borderRadius:15,flexDirection:"row",backgroundColor:"#505050"}}>
+    <TouchableOpacity 
+    onPress={() => router.push({pathname:"/Componets/HomeComponents/OnExcersieDetails",params:data,index})}
+    style={{width:"98%",marginTop:5,padding:5,borderRadius:15,flexDirection:"row",backgroundColor:"#505050"}}>
         {data?.gifUrl ? (
         <Image
           source={{ uri: data?.gifUrl }}

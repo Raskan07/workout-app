@@ -12,7 +12,7 @@ const ExerciseList = ({data}:any) => {
       data={data}
       keyExtractor={(item) => item.id}
       renderItem={({item,index}) => (
-        <ExerciseCard data={item} />
+        <ExerciseCard data={item} router={route} index={index} />
       )}
       
       
