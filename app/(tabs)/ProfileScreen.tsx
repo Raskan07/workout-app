@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import * as ImagePicker from 'expo-image-picker';
 
 const ProfileScreen = () => {
   const router = useRouter();
   const vector ='https://static.vecteezy.com/system/resources/previews/025/851/732/original/minimalistic-round-logo-template-white-icon-of-man-head-profile-portrait-silhouette-on-black-background-modern-logotype-concept-for-business-identity-t-shirts-print-tattoo-illustration-vector.jpg';
+
 
   const data = [
     {
