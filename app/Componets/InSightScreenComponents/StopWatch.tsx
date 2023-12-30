@@ -1,5 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
+import { Entypo,Feather } from '@expo/vector-icons'; 
+import Animated ,{ FadeIn, FadeInLeft, FadeOut,  useSharedValue,
+  useDerivedValue,
+  withSpring,
+  useAnimatedStyle, } from 'react-native-reanimated';
+
 
 const StopWatch = () => {
     const [sec,setSec] = useState(0);
@@ -25,11 +31,17 @@ const StopWatch = () => {
     useEffect(() => {
         let intreval: string | number | NodeJS.Timeout | undefined ;
         if(running){
-            intreval = setInterval(() => {
-                setSec((prevSec) => (prevSec === 59 ? 0 : +1))
-                setMin((prevMin) => (prevMin === 59 && sec === 59 ? prevMin + 1 : prevMin));
-                setHur((prevHur) => (prevHur === 23 && min === 59 && sec === 59 ? prevHur + 1 : prevHur));
-            },1000)
+          intreval = setInterval(() => {
+            setSec(sec + 1);
+            if (sec === 60) {
+              setMin(min + 1);
+              setSec(0);
+            }
+            if (min === 60) {
+              setHur(hur + 1);
+              setMin(0);
+            }
+          }, 1000);
 
         }else {
             clearInterval(intreval)
@@ -40,17 +52,17 @@ const StopWatch = () => {
 
     const formatTime = (time: number) => (time < 10 ? `0${time}` : `${time}`);
   return (
-    <View style={{}}>
-      <Text style={{}}>{`${formatTime(hur)}:${formatTime(min)}:${formatTime(sec)}`}</Text>
-      <View style={{}}>
-        <TouchableOpacity style={{}} onPress={start}>
-          <Text>Start</Text>
+    <View style={{width:"94%",alignItems:"center",backgroundColor:"#D0FD3E",padding:10,borderRadius:30,margin:10}}>
+      <Animated.Text  entering={FadeInLeft.delay(200).springify()} exiting={FadeOut} style={{fontSize:80,fontWeight:"500",color:"#000"}}>{`${formatTime(hur)}:${formatTime(min)}:${formatTime(sec)}`}</Animated.Text>
+      <View style={{width:"100%",flexDirection:"row",alignItems:"center",justifyContent:"space-around"}}>
+        <TouchableOpacity style={{width:75,padding:10,backgroundColor:"#2c2c2e",paddingLeft:10,paddingRight:10,borderRadius:5,alignItems:"center",justifyContent:"center"}} onPress={reset}>
+        <Feather name="rotate-cw" size={30} color="#fff" />
         </TouchableOpacity>
-        <TouchableOpacity style={{}} onPress={stop}>
-          <Text>Stop</Text>
+        <TouchableOpacity style={{width:75,padding:10,backgroundColor:"#2c2c2e",paddingLeft:10,paddingRight:10,borderRadius:5,alignItems:"center",justifyContent:"center"}} onPress={stop}>
+        <Feather name="pause" size={30} color="#FFF" />
         </TouchableOpacity>
-        <TouchableOpacity style={{}} onPress={reset}>
-          <Text>Reset</Text>
+        <TouchableOpacity style={{width:75,padding:10,backgroundColor:"#2c2c2e",paddingLeft:10,paddingRight:10,borderRadius:5,alignItems:"center",justifyContent:"center"}} onPress={start}>
+        <Entypo name="controller-play" size={30} color="#fff" />
         </TouchableOpacity>
       </View>
     </View>
