@@ -52,7 +52,7 @@ const StopWatch = () => {
 
     const formatTime = (time: number) => (time < 10 ? `0${time}` : `${time}`);
   return (
-    <View style={{width:"94%",alignItems:"center",backgroundColor:"#D0FD3E",padding:10,borderRadius:30,margin:10}}>
+    <View style={{width:"94%",height:"97%",alignItems:"center",backgroundColor:"#D0FD3E",padding:10,borderRadius:30,margin:10,justifyContent:"center"}}>
       <Animated.Text  entering={FadeInLeft.delay(200).springify()} exiting={FadeOut} style={{fontSize:80,fontWeight:"500",color:"#000"}}>{`${formatTime(hur)}:${formatTime(min)}:${formatTime(sec)}`}</Animated.Text>
       <View style={{width:"100%",flexDirection:"row",alignItems:"center",justifyContent:"space-around"}}>
         <TouchableOpacity style={{width:75,padding:10,backgroundColor:"#2c2c2e",paddingLeft:10,paddingRight:10,borderRadius:5,alignItems:"center",justifyContent:"center"}} onPress={reset}>

@@ -1,14 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { StyleSheet, View, FlatList,Text } from 'react-native';
 import DateContainer from './DateContainer';
-import { Tabs } from 'expo-router';
+import { AntDesign } from '@expo/vector-icons'; 
 
 const Calendar = () => {
   const days = [];
 
   for (let i = 1; i <= 31; i++) {
+    const setDate = new Date().setDate(i)
+    const fulldate = new Date(setDate).toDateString()
+    const updateWeekOfDay = fulldate.slice(0,1)
     days.push({
       day: i,
+      weekofday : updateWeekOfDay
     });
   }
 
@@ -20,22 +24,49 @@ const Calendar = () => {
     'September', 'October', 'November', 'December'
   ];
   const currentMonthIndex = new Date().getUTCMonth()
-  const currentMonthName = monthNames[currentMonthIndex];
 
-  console.log(currentMonthName)
-  const arrow = ">"
+  const [nextMonth,setNextMonth] = useState(0)
+  const currentMonthName = monthNames[currentMonthIndex + nextMonth];
+
+  const getNextMonth = () => {
+    setNextMonth(nextMonth + 1)
+  }
+
+  const getPreviusMonth = () => {
+    setNextMonth(nextMonth -1)
+  }
+
+  const currentYear = new Date().getFullYear()
+
+  const dayatstr = new Date().toDateString()
+  const day = dayatstr.slice(0,1)
+
+
+
+
+
+  
+
+
+
+
 
   
   return (
-    <View style={{ width: '100%', padding: 10 }}>
-      <Text style={{color:"#D0FD3E",paddingLeft:12,fontSize:18,fontWeight:"500",borderRadius:3,textTransform:"capitalize"}}>{currentMonthName}  {arrow}</Text>
+    <View style={{ width: '100%', padding: 10,backgroundColor:"#2C2C2E",paddingBottom:15,paddingTop:35 }}>
+      <View style={{width:"100%",padding:10,flexDirection:"row",alignItems:"baseline",justifyContent:"space-between",top:-20}}>
+      <AntDesign onPress={getPreviusMonth} name="left" size={24} color="#FFF" />
+      <Text style={{fontSize:17,color:"#FFFFFF",textTransform:"capitalize",fontWeight:"500"}}>{currentMonthName} {currentYear}</Text>
+      <AntDesign onPress={getNextMonth} name="right" size={24} color="#FFF" />
+      </View>
       <FlatList
         data={days}
         keyExtractor={(item) => item.day.toString()}
         renderItem={({ item }) => (
-          <DateContainer day={item.day} currentDay={currentDay} />
+          <DateContainer day={item.day} weekofDay={item.weekofday} currentDay={currentDay} dayAtStr={day} />
         )}
         horizontal
+        showsHorizontalScrollIndicator={false}
         
       />
     </View>
