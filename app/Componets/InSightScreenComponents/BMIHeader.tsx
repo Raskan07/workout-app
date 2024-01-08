@@ -3,9 +3,9 @@ import React from 'react'
 
 const BMIHeader = ({title,subTitle}:any) => {
   return (
-    <View style={{width:"100%",alignItems:"center",marginTop:30,padding:10}}>
+    <View style={{width:"100%",marginTop:10,flexDirection:"row"}}>
       <Text style={{fontWeight:"800",fontSize:22,color:"#FFF",textTransform:"uppercase",letterSpacing:1}}>{title}</Text>
-      <Text style={{fontWeight:"500",fontSize:15,color:"#FFF",textTransform:"uppercase",letterSpacing:0.6}}>{subTitle}</Text>
+      <Text style={{fontWeight:"500",fontSize:15,color:"#FFFFFF90",textTransform:"lowercase",letterSpacing:0.6,marginLeft:40}}>{subTitle}</Text>
     </View>
   )
 }

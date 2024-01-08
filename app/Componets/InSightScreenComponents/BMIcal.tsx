@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View,TouchableOpacity,TextInput } from 'react-native'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import axios from 'axios'
 import BMIHeader from './BMIHeader'
 import { AntDesign } from '@expo/vector-icons'
 import { useRouter } from 'expo-router'
+import LottieView from 'lottie-react-native';
 
 const BMIcal = () => {
   const [age, setAge] = useState('');
@@ -14,52 +15,53 @@ const BMIcal = () => {
 
 
   const router = useRouter()
+  const animation = useRef(null);
   return (
     <View>
-
-<View style={{flexDirection:"row",width:"100%",alignItems:"center"}}>
-    <TouchableOpacity onPress={() => router.push("/(tabs)/InsightScreen")}>
-       <AntDesign
-         name="left"
-         size={24}
-         color="#fff"
-         style={{ padding: 5, margin: 15, backgroundColor: '#2C2C2E', borderRadius: 30, width: 40 }}
-       />
-     </TouchableOpacity>
-     <Text style={{ color: '#FFF', fontSize: 20, textTransform: 'uppercase', fontWeight: '700',textAlign:"center",paddingLeft:30}}>BMI calculator</Text>
-     </View>
-      <BMIHeader title={"how old are you?"} subTitle={"This Helps us to create BMI report"}/>
-      <View style={{width:"100%",alignItems:"center",marginTop:5}}>
+      <View style={{flexDirection:"row",alignItems:"center",width:"100%"}}>
+      <LottieView
+        autoPlay
+        ref={animation}
+        style={{
+          width: "50%",
+          height: "100%",
+          backgroundColor: '#1C1C1E',
+        }}
+        source={require("../../../assets/animations/body.json")}
+      />
+      <View style={{width:"50%",alignItems:"center",flexDirection:"column"}}>
+      <BMIHeader title={"Age"} subTitle={""}/>
       <TextInput
-        style={{width:200,borderWidth:1,borderRadius:15,height:50,borderColor:"#D0FD3E",fontSize:22,color:"#FFF",fontWeight:"600",textAlign:"center"}}
+        style={{width:170,borderWidth:1,borderRadius:15,height:60,borderColor:"#D0FD3E",fontSize:22,color:"#FFF",fontWeight:"600",textAlign:"center"}}
         onChangeText={setAge}
         value={age}
         keyboardType="numeric"
+        placeholder='0'
+        placeholderTextColor={"#fff"}
       />
-      </View>
 
-      <BMIHeader title={"What's your weight?"} subTitle={"you can allways change latter"}/>
-      <View style={{width:"100%",alignItems:"center",marginTop:5}}>
+      <BMIHeader title={"Height"} subTitle={"CM"}/>
       <TextInput
-        style={{width:200,borderWidth:1,borderRadius:15,height:50,borderColor:"#D0FD3E",fontSize:22,color:"#FFF",fontWeight:"600",textAlign:"center"}}
-        onChangeText={setWeight}
-        value={weight}
-        keyboardType="numeric"
-      />
-      </View>
-
-      <BMIHeader title={"What's your Height?"} subTitle={"this help us to create workout plan"}/>
-      <View style={{width:"100%",alignItems:"center",marginTop:5}}>
-      <TextInput
-        style={{width:200,borderWidth:1,borderRadius:15,height:50,borderColor:"#D0FD3E",fontSize:22,color:"#FFF",fontWeight:"600",textAlign:"center"}}
+        style={{width:170,borderWidth:1,borderRadius:15,height:60,borderColor:"#D0FD3E",fontSize:22,color:"#FFF",fontWeight:"600",textAlign:"center"}}
         onChangeText={setHeight}
         value={height}
         keyboardType="numeric"
+        placeholder='0'
+        placeholderTextColor={"#fff"}
+      />
+
+      <BMIHeader title={"Weight"} subTitle={"kg"}/>
+      <TextInput
+        style={{width:170,borderWidth:1,borderRadius:15,height:60,borderColor:"#D0FD3E",fontSize:22,color:"#FFF",fontWeight:"600",textAlign:"center"}}
+        onChangeText={setWeight}
+        value={weight}
+        keyboardType="numeric"
+        placeholder='0'
+        placeholderTextColor={"#fff"}
       />
       </View>
 
-
-      <View style={{width:"100%",alignItems:"center",marginTop:5}}>
+      <View style={{width:"100%",alignItems:"center",marginTop:5,position:"absolute",bottom:-50}}>
 
       <TouchableOpacity 
       onPress={() => router.push({pathname:"/Componets/InSightScreenComponents/BMIReport",params:data})}
@@ -68,8 +70,13 @@ const BMIcal = () => {
       </TouchableOpacity>
 
       </View>
+    
 
-      
+      </View>
+
+
+
+
     </View>
   )
 }
