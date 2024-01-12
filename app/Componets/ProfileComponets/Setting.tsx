@@ -32,7 +32,7 @@ const Setting = () => {
   ]
 
   return (
-    <View>
+    <View style={[{backgroundColor:"#1C1C1E"},StyleSheet.absoluteFill]}>
       <View style={{flexDirection:"row",width:"100%",alignItems:"center"}}>
      <TouchableOpacity onPress={() => router.push("/(tabs)/ProfileScreen")}>
         <AntDesign

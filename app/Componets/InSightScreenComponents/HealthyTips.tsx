@@ -99,6 +99,8 @@ const HealthyTips = () => {
 
   return (
    <ScrollView>
+        <View style={[{backgroundColor:"#1C1C1E"},StyleSheet.absoluteFill]}>
+
     <View style={styles.header}>
     <AntDesign name="left" size={24} color="#fff" style={{padding:5}} onPress={ () => router.back()}  />
     </View>
@@ -163,7 +165,7 @@ const HealthyTips = () => {
 </View>
           
 
-
+</View>
    </ScrollView>
   )
 }

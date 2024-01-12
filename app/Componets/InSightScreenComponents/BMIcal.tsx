@@ -17,7 +17,7 @@ const BMIcal = () => {
   const router = useRouter()
   const animation = useRef(null);
   return (
-    <View>
+    <View style={[{backgroundColor:"#1C1C1E"},StyleSheet.absoluteFill]}>
       <View style={{flexDirection:"row",alignItems:"center",width:"100%"}}>
       <LottieView
         autoPlay

@@ -2,7 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import { StyleSheet } from 'react-native';
 
-export default function Layout() {
+const  Layout = () => {
     return (
     <Tabs screenOptions={({route}) => ({
         tabBarIcon: ({ focused, color, size }) => {
@@ -35,3 +35,5 @@ export default function Layout() {
     
     );
   }
+
+export default Layout ;

@@ -6,7 +6,7 @@ import Checkbox from 'expo-checkbox';
 const LanguageChoose = ({title,onPress,isCheck}:any) => {
     const [isCheckedMetric, setCheckedMetric] = useState(isCheck);
   return (
-    <View>
+    <View style={[{backgroundColor:"#1C1C1E"},StyleSheet.absoluteFill]}>
     <View style={{width:"100%",alignItems:"center",justifyContent:"center"}}>
     <TouchableOpacity 
     onPress={onPress}

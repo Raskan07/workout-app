@@ -5,7 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const ContactUs = () => {
   return (
-    <View>
+    <View style={[{backgroundColor:"#1C1C1E"},StyleSheet.absoluteFill]}>
      <SemiHeader title="Contact Us"/>
 
      <View style={{margin:10,padding:10,alignItems:"center",flexDirection:"row",justifyContent:"space-around"}}>

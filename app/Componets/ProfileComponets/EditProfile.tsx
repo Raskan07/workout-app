@@ -52,7 +52,7 @@ const EditProfile = () => {
 
 
   return (
-    <View style={{width:"100%"}}>
+    <View style={[{backgroundColor:"#1C1C1E",width:"100%"},StyleSheet.absoluteFill]}>
        <View style={{flexDirection:"row",width:"100%",alignItems:"center"}}>
      <TouchableOpacity onPress={() => router.push("/(tabs)/ProfileScreen")}>
         <AntDesign

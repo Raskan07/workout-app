@@ -31,7 +31,7 @@ const Exercise = () => {
 
     return (
         <ScrollView>
-            <View style={{ flex: 1 }}>
+            <View style={[{ flex: 1,backgroundColor:"#1C1C1E" },StyleSheet.absoluteFill]}>
                 <Stack screenOptions={{
                     presentation: "fullScreenModal"
                 }} />

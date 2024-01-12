@@ -6,7 +6,7 @@ import LanguageChoose from './LanguageChoose'
 
 const Language = () => {
   return (
-    <View>
+    <View style={[{backgroundColor:"#1C1C1E"},StyleSheet.absoluteFill]}>
       <SemiHeader title="Languages"/>
       <LanguageChoose title={"english"} isCheck={true}/>
     </View>

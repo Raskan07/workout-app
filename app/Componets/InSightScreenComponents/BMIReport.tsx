@@ -54,7 +54,7 @@ const BMIReport = () => {
     const bmiClass = res?.data?.healthy_bmi_range
 
   return (
-    <View>
+    <View style={[{backgroundColor:"#1C1C1E"},StyleSheet.absoluteFill]}>
       <View style={{flexDirection:"row",width:"100%",alignItems:"center"}}>
     <TouchableOpacity onPress={() => router.push("/Componets/InSightScreenComponents/BMIcal")}>
        <AntDesign

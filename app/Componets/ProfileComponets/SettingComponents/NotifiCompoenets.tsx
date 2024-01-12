@@ -5,7 +5,7 @@ const NotifiCompoenets = ({title,onpress,isEnable}:any) => {
     const [isEnabled, setIsEnabled] = useState(isEnable);
     const toggleSwitch = () => setIsEnabled((previousState: any) => !previousState);
   return (
-    <View style={{width:"100%",alignItems:"center",justifyContent:"center"}}>
+    <View style={[{width:"100%",alignItems:"center",justifyContent:"center",backgroundColor:"#1c1c1e"},StyleSheet.absoluteFill]}>
       <TouchableOpacity
       onPress={onpress}
        style={{

@@ -7,7 +7,7 @@ const UnitsOfMeasure = () => {
   const [isCheckedMetric, setCheckedMetric] = useState(false);
   const [isCheckedImperial, setCheckedImperial] = useState(false);
   return (
-    <View>
+    <View style={[{backgroundColor:"#1C1C1E"},StyleSheet.absoluteFill]}>
       <SemiHeader title="Units of Measure"/>
       <View style={{width:"100%",alignItems:"center",justifyContent:"center"}}>
       <TouchableOpacity style={{

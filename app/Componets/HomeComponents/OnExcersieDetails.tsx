@@ -13,7 +13,7 @@ const OnExcersieDetails = () => {
     const router = useRouter()
   return (
     <ScrollView>
-    <View>
+    <View style={[{backgroundColor:"#1C1C1E"},StyleSheet.absoluteFill]}>
     <Entypo 
     onPress={() => router.back()}
     name="cross" 

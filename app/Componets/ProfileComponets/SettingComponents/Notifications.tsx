@@ -5,7 +5,7 @@ import NotifiCompoenets from './NotifiCompoenets'
 
 const Notifications = () => {
   return (
-    <View style={{width:"100%"}}>
+    <View style={[{backgroundColor:"#1C1C1E",width:"100%"},StyleSheet.absoluteFill]}>
       <SemiHeader title="Notifications"/>
       <View style={{width:"100%",alignItems:"center"}}>
         <NotifiCompoenets title={"Workout Remainders"} isEnable={true}/>

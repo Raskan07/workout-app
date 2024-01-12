@@ -52,6 +52,7 @@ const StopWatch = () => {
 
     const formatTime = (time: number) => (time < 10 ? `0${time}` : `${time}`);
   return (
+    <View style={[{backgroundColor:"#1C1C1E"},StyleSheet.absoluteFill]}>
     <View style={{width:"94%",height:"97%",alignItems:"center",backgroundColor:"#D0FD3E",padding:10,borderRadius:30,margin:10,justifyContent:"center"}}>
       <Animated.Text  entering={FadeInLeft.delay(200).springify()} exiting={FadeOut} style={{fontSize:80,fontWeight:"500",color:"#000"}}>{`${formatTime(hur)}:${formatTime(min)}:${formatTime(sec)}`}</Animated.Text>
       <View style={{width:"100%",flexDirection:"row",alignItems:"center",justifyContent:"space-around"}}>
@@ -65,6 +66,7 @@ const StopWatch = () => {
         <Entypo name="controller-play" size={30} color="#fff" />
         </TouchableOpacity>
       </View>
+    </View>
     </View>
   )
 }
